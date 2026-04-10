@@ -1,0 +1,49 @@
+{
+  "name": "deco-line-viewer",
+  "version": "1.0.0",
+  "description": "Desktop and web viewer for Deco Line devices",
+  "author": "ARGUS-SPECTR",
+  "main": "src/electron/main.js",
+  "scripts": {
+    "prepare:electron": "node scripts/prepare-electron-app.js",
+    "dev:web": "node scripts/dev-web-server.js",
+    "dev:electron": "npm run prepare:electron && electron .",
+    "build:electron": "npm run prepare:electron && electron-builder",
+    "build:win": "npm run prepare:electron && electron-builder --win nsis",
+    "build:mac": "npm run prepare:electron && electron-builder --mac dmg"
+  },
+  "devDependencies": {
+    "electron": "^35.1.4",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "ru.argus-spectrum.deco-line-viewer",
+    "productName": "Deco Line Viewer",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "src/electron/**/*",
+      "package.json"
+    ],
+    "extraMetadata": {
+      "main": "src/electron/main.js"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.graphics-design"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "src/web/assets/favicons/favicon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
