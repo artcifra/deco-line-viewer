@@ -13,7 +13,7 @@
     "build:mac": "npm run prepare:electron && electron-builder --mac dmg"
   },
   "devDependencies": {
-    "electron": "^35.1.4",
+    "electron": "^39.8.5",
     "electron-builder": "^24.13.3"
   },
   "build": {
