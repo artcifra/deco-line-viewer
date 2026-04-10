@@ -128,7 +128,7 @@ const TEXTURE_FLIP_VERTICAL = false;
 
 // Устанавливает размеры рабочей области экрана
 const BODY_SET_SIZE = {
-    enabled: true,
+    enabled: false,
     width: 1920,
     height: 1080,
     setRedBorder: false
