@@ -2,6 +2,7 @@ const { app, BrowserWindow } = require('electron');
 const path = require('node:path');
 
 function createWindow() {
+  const isWindows = process.platform === 'win32';
   const window = new BrowserWindow({
     width: 1440,
     height: 900,
@@ -9,6 +10,13 @@ function createWindow() {
     minHeight: 700,
     backgroundColor: '#f5f7fc',
     autoHideMenuBar: true,
+    frame: !isWindows,
+    kiosk: isWindows,
+    fullscreen: isWindows,
+    resizable: !isWindows,
+    movable: !isWindows,
+    minimizable: !isWindows,
+    maximizable: !isWindows,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
